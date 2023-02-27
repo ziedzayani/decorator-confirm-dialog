@@ -1,6 +1,5 @@
 # DecoratorDialogMaterial
 
-## 
 
 This is a simple Angular application that displays a static list of users and includes a delete button for each row.
 
