@@ -1,16 +1,17 @@
 import { ENVIRONMENT_INITIALIZER, importProvidersFrom, inject } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app/app.component';
+import { AppModule } from './app/app.module';
 import { DialogService } from './app/service/dialog.service';
 
-export function initializeDialogService() {
-  return () => {
-    inject(DialogService)
-  };
-}
 
-bootstrapApplication(AppComponent, { providers : [
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+
+/*bootstrapApplication(AppComponent, { providers : [
   importProvidersFrom(MatDialogModule),
   {
     provide: ENVIRONMENT_INITIALIZER,
@@ -20,4 +21,4 @@ bootstrapApplication(AppComponent, { providers : [
   }
 ]
 })
-  .catch(err => console.error(err));
+  .catch(err => console.error(err));*/
